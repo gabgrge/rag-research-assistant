@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-assistant"
+version = "1.0.0"
+description = "Local RAG assistant with Streamlit UI and Chroma vector store"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "All Rights Reserved"}
+authors = [{name = "Gabriel George"}]
+
+dependencies = [
+    "streamlit~=1.54.0",
+    "python-dotenv~=1.2.1",
+    "tqdm~=4.67.3",
+    "PyMuPDF~=1.27.1",
+    "python-docx~=1.2.0",
+    "python-pptx~=1.0.2",
+    "openai~=2.21.0",
+    "chromadb~=1.5.0",
+    "tiktoken~=0.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mkdocs~=1.6.1",
+    "mkdocs-material~=9.7.7",
+    "pytest~=9.1.1",
+    "pytest-cov~=7.1.0",
+]
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.distutils.egg_info]
+egg_base = "."
+
+[tool.pytest]
+minversion = "9.0"
+pythonpath = ["."]
+testpaths = ["tests"]
+log_cli = true
+log_level = "WARNING"
+addopts = [
+    "-vv",
+    "-p no:warnings",
+    "--cov=src",
+    "--cov-report=xml",
+    "--cov-report=term-missing",
+]
+# -vv : Verbose output
+# -p no:warnings : Disable warnings output
+# --cov=src : Measure coverage for the src directory
+# --cov-report=xml : Generate coverage report in XML format
+# --cov-report=term-missing : Show missing lines in the terminal
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "def __repr__",
+    "if __debug__",
+]

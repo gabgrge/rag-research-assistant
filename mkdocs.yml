@@ -1,0 +1,10 @@
+site_name: "Research Assistant"
+site_description: "Local RAG application for research and knowledge management"
+site_url: "https://gabgrge.github.io/rag-research-assistant/"
+nav:
+  - Home: index.md
+  - User guide: USER_GUIDE.md
+  - Installation: INSTALLATION.md
+  - Technical Documentation: TECHNICAL_DOCUMENTATION.md
+theme:
+  name: material

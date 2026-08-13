@@ -1,0 +1,21 @@
+services:
+  rag-research-assistant:
+    build: .
+    container_name: rag-research-assistant
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - RAW_DIR=/app/gdrive_raw
+      - SOFFICE_PATH=/usr/bin/soffice
+      - PYTHONPATH=/app
+    volumes:
+      # Mount the runtime data directory from the host to the container
+      - ./.runtime:/app/.runtime
+
+      # Mount the Google Drive sync directory from the host to the container (read-only)
+      - ${RAW_DIR}:/app/gdrive_raw:ro
+
+      # Mount the source code directory from the host to the container (for development)
+      - ./src:/app/src

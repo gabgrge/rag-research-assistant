@@ -1,0 +1,47 @@
+# --- Local virtual environments ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Environment variables and secrets ---
+.env
+.env.*
+*.env
+secrets.json
+
+# --- Local runtime data ---
+.runtime/
+
+# --- IDE caches and system files ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Python caches ---
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# --- Documentations and CI/CD ---
+.github/
+docs/
+site/
+mkdocs.yml
+sonar-project.properties
+
+# --- Local build files ---
+build/
+dist/
+*.egg-info/
