@@ -12,23 +12,23 @@ license = {text = "All Rights Reserved"}
 authors = [{name = "Gabriel George"}]
 
 dependencies = [
-    "streamlit~=1.54.0",
-    "python-dotenv~=1.2.1",
-    "tqdm~=4.67.3",
-    "PyMuPDF~=1.27.1",
-    "python-docx~=1.2.0",
-    "python-pptx~=1.0.2",
-    "openai~=2.21.0",
-    "chromadb~=1.5.0",
-    "tiktoken~=0.12.0",
+    "streamlit==1.54.0",
+    "python-dotenv==1.2.2",
+    "tqdm==4.67.3",
+    "PyMuPDF==1.27.2.3",
+    "python-docx==1.2.0",
+    "python-pptx==1.0.2",
+    "openai==2.21.0",
+    "chromadb==1.5.9",
+    "tiktoken==0.12.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "mkdocs~=1.6.1",
-    "mkdocs-material~=9.7.7",
-    "pytest~=9.1.1",
-    "pytest-cov~=7.1.0",
+    "mkdocs==1.6.1",
+    "mkdocs-material==9.7.7",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
 ]
 
 [tool.setuptools.packages]

@@ -7,7 +7,7 @@ cd "$PROJECT_ROOT"
 
 echo -e "\033[0;36m--- Configuration de l'Assistant Documentaire RAG ---\033[0m"
 
-if [ ! -f .env ]; then
+if [[ ! -f .env ]]; then
     echo -e "\033[0;33m[INFO] Création du fichier .env à partir de .env.example...\033[0m"
 
     cp .env.example .env

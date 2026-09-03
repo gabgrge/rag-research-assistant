@@ -12,9 +12,9 @@ ENV PYTHONBUFFERED=1 \
 
 # 3. Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libreoffice \
-    curl \
     build-essential \
+    curl \
+    libreoffice \
     && rm -rf /var/lib/apt/lists/*
 
 # 4. Set the working directory

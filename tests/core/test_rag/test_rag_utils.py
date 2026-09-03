@@ -59,9 +59,12 @@ class TestRetrievalFieldsExtraction:
         score, rscore, dist = rag.retrieval_fields(cand)
         
         # Assert
-        assert isinstance(score, float) and score == pytest.approx(0.5)
-        assert isinstance(rscore, float) and rscore == pytest.approx(0.4)
-        assert isinstance(dist, float) and dist == pytest.approx(0.1)
+        assert isinstance(score, float)
+        assert score == pytest.approx(0.5)
+        assert isinstance(rscore, float)
+        assert rscore == pytest.approx(0.4)
+        assert isinstance(dist, float)
+        assert dist == pytest.approx(0.1)
     
     def test_retrieval_fields_with_expanded_candidate_returns_none_scores(self, candidate_factory):
         """Test that expanded candidates have None for retrieval scores."""

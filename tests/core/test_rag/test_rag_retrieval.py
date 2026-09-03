@@ -212,4 +212,5 @@ class TestCandidateExpansion:
         
         # Assert
         ids = {c.chunk_id for c in expanded}
-        assert "x" in ids and "y" in ids
+        assert "x" in ids
+        assert "y" in ids

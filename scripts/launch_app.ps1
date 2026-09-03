@@ -1,5 +1,5 @@
-$PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$ProjectRoot = Split-Path -Parent $PSScriptRoot
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$ProjectRoot = Split-Path -Parent $ScriptDir
 Set-Location $ProjectRoot
 
 $dockerCheck = docker info 2>$null
