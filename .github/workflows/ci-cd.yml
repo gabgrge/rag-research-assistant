@@ -46,6 +46,7 @@ jobs:
         env:
           SOFFICE_PATH: /usr/bin/soffice
           PYTHONPATH: .
+          RAW_DIR: ${{ github.workspace }}
         run: |
           pytest
 

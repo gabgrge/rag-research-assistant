@@ -3,6 +3,7 @@
 This document explains how to install the application on Windows and macOS.
 
 ## Prerequisites
+
 - Windows 10/11 or macOS (Intel / Apple Silicon).
 - Docker Desktop installed and running.
 - Google Drive installed and synchronized locally.
@@ -10,6 +11,7 @@ This document explains how to install the application on Windows and macOS.
 - Internet access for the OpenAI API.
 
 ## Installation steps
+
 1. Copy the project folder to the target machine.
 2. Initialize the environment:
    - **Windows**: Run `scripts\setup.ps1` via PowerShell.
@@ -24,9 +26,11 @@ This document explains how to install the application on Windows and macOS.
    - **macOS**: Run `scripts/launch_app.sh` or `make docker-up`.
 
 ## Quick verification
+
 - The application should open in your default web browser (`http://localhost:8501`).
 - The "Conversation" and "Mise à jour" tabs should appear.
 
 ## Notes
+
 - If the project folder is moved, recreate your shortcut.
 - After a dependency update (pyproject.toml), run `make docker-install` to rebuild the Docker image.

@@ -11,6 +11,7 @@ It is designed for individuals who need a practical, privacy-conscious way to re
 - Provides source-backed answers instead of generic AI responses
 
 ## Quick links
+
 - [User Guide](USER_GUIDE.md)
 - [Installation](INSTALLATION.md)
 - [Technical Documentation](TECHNICAL_DOCUMENTATION.md)
