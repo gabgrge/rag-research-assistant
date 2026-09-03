@@ -1,0 +1,1043 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Local RAG application for research and knowledge management">
+      
+      
+      
+        <link rel="canonical" href="https://gabgrge.github.io/rag-research-assistant/TECHNICAL_DOCUMENTATION/">
+      
+      
+        <link rel="prev" href="../INSTALLATION/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Technical Documentation - Research Assistant</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#technical-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Research Assistant" class="md-header__button md-logo" aria-label="Research Assistant" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Research Assistant
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Technical Documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Research Assistant" class="md-nav__button md-logo" aria-label="Research Assistant" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Research Assistant
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../USER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTALLATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General organization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#srcui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/ui/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srccore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/core/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcpipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/pipeline/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/admin/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/query/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcintegrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/integrations/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/utils/
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-pipeline-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update pipeline (data flow)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-and-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch and shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-restore-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup / restore the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-reset-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local reset (advanced)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General organization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#srcui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/ui/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srccore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/core/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcpipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/pipeline/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/admin/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/query/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcintegrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/integrations/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        src/utils/
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-pipeline-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update pipeline (data flow)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-and-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch and shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-restore-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup / restore the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-reset-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local reset (advanced)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="technical-documentation">Technical Documentation</h1>
+<h2 id="overview">Overview</h2>
+<p>The application is a local Streamlit UI that queries a locally stored Chroma index. Documents are synchronized via Google Drive and then processed through an update pipeline (conversion, extraction, chunking, and indexing).</p>
+<h2 id="project-structure">Project structure</h2>
+<h3 id="general-organization">General organization</h3>
+<p>The application is organized into specialized modules:</p>
+<h4 id="srcui"><code>src/ui/</code></h4>
+<ul>
+<li><code>app.py</code> — Streamlit interface for the end user.</li>
+<li>Handles RAG queries, displays results and sources, and manages index updates.</li>
+</ul>
+<h4 id="srccore"><code>src/core/</code></h4>
+<ul>
+<li><code>rag.py</code> — RAG logic (vector search, ranking, answer generation with citations).</li>
+<li><code>update_pipeline.py</code> — Orchestrates the update pipeline by calling the successive steps.</li>
+<li><code>registry.py</code> — Manages the document inventory (sources.csv) and related metadata.</li>
+<li>This is the core business logic of the application.</li>
+</ul>
+<h4 id="srcpipeline"><code>src/pipeline/</code></h4>
+<ul>
+<li>Update pipeline steps called by <code>update_pipeline.py</code>:</li>
+<li><code>convert_legacy_office_to_modern.py</code> — Converts <code>.doc</code>/<code>.ppt</code> files to <code>.docx</code>/<code>.pptx</code>.</li>
+<li><code>scan_and_extract.py</code> — Scans files and extracts text (PDF, Word, PPT, etc.).</li>
+<li><code>chunk_hierarchical.py</code> — Splits documents into hierarchical chunks (leaf + parent).</li>
+<li><code>index_chroma.py</code> — Indexes chunks in Chroma with embeddings.</li>
+</ul>
+<h4 id="srcadmin"><code>src/admin/</code></h4>
+<ul>
+<li>Maintenance utilities:</li>
+<li><code>backup_index.py</code> — Exports/restores the Chroma index.</li>
+<li><code>reset_local_state.py</code> — Resets all local data.</li>
+</ul>
+<h4 id="srcquery"><code>src/query/</code></h4>
+<ul>
+<li><code>rag_answer.py</code> — RAG query tool for the CLI (alternative to the Streamlit UI).</li>
+</ul>
+<h4 id="srcintegrations"><code>src/integrations/</code></h4>
+<ul>
+<li>External services and APIs:</li>
+<li><code>llm/openai_utils.py</code> — Wrapper for OpenAI calls (embeddings, generation).</li>
+<li><code>vector/chroma_utils.py</code> — Helpers for managing the Chroma index (create, load, delete).</li>
+</ul>
+<h4 id="srcutils"><code>src/utils/</code></h4>
+<ul>
+<li><code>paths.py</code> — Centralized file path constants.</li>
+<li><code>logging_utils.py</code> — Log configuration.</li>
+<li><code>fs_utils.py</code>, <code>common_utils.py</code>, <code>type_hints.py</code> — General helper modules.</li>
+</ul>
+<h3 id="update-pipeline-data-flow">Update pipeline (data flow)</h3>
+<p>Main steps:</p>
+<ol>
+<li>Legacy conversion (<code>.doc</code>, <code>.ppt</code> -&gt; <code>.docx</code>, <code>.pptx</code>).</li>
+<li>Scan and content extraction.</li>
+<li>Hierarchical chunking (leaf + parent).</li>
+<li>Chroma indexing.</li>
+</ol>
+<pre><code class="language-mermaid">flowchart TD
+    A[&quot;Raw files (Google Drive)&quot;] --&gt;|convert_legacy_office_to_modern| B[&quot;Modern files (.docx, .pptx, .pdf)&quot;]
+    B --&gt;|scan_and_extract| C[&quot;Extracted text (JSON)&quot;]
+    C --&gt;|chunk_hierarchical| D[&quot;Chunks (leaf + parent)&quot;]
+    D --&gt;|index_chroma| E[&quot;Vector index (Chroma)&quot;]
+</code></pre>
+<h3 id="runtime-data">Runtime data</h3>
+<p>All outputs are isolated in <code>.runtime/</code> (git-ignored):</p>
+<ul>
+<li><code>.runtime/registry/sources.csv</code> — Document inventory.</li>
+<li><code>.runtime/data/extracted/</code> — Extracted text as JSON.</li>
+<li><code>.runtime/data/chunks/leaf/</code> and <code>parent/</code> — Hierarchically split chunks.</li>
+<li><code>.runtime/data/index/chroma/</code> — Persistent vector index.</li>
+<li><code>.runtime/logs/</code> — Detailed execution logs.</li>
+<li><code>.runtime/backups/</code> — Index backups.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>The <code>.env</code> file at the project root contains:</p>
+<ul>
+<li><code>OPENAI_API_KEY</code>: OpenAI API key.</li>
+<li><code>RAW_DIR</code>: Local path to the synchronized Google Drive folder.</li>
+<li>Optional: <code>SOFFICE_PATH</code>: Path to <code>soffice.exe</code> (unnecessary in Docker container).</li>
+<li>Optional: <code>CONVERTED_DIR</code> to change the conversion output folder.</li>
+</ul>
+<h2 id="rag">RAG</h2>
+<p>Default parameters are defined in <code>src/core/rag.py</code>.</p>
+<p>Models:</p>
+<ul>
+<li>Embeddings: <code>text-embedding-3-small</code></li>
+<li>Generation: <code>gpt-5-mini</code></li>
+</ul>
+<h2 id="launch-and-shortcuts">Launch and shortcuts</h2>
+<ul>
+<li><code>scripts/setup.ps1</code> / <code>.sh</code>: initializes the <code>.env</code> file and builds the Docker image.</li>
+<li><code>scripts/create_shortcut.ps1</code>: creates an "Assistant documentaire" shortcut in the Windows Start menu.</li>
+<li><code>scripts/launch_app.sh</code>: launches the app on macOS.</li>
+<li><code>scripts/launch_app.ps1</code>: orchestrates Docker and opens the browser on Windows.</li>
+<li><code>scripts/launch_app.vbs</code>: launches the app on Windows (avoids opening a terminal window).</li>
+</ul>
+<h2 id="software-update">Software update</h2>
+<p>Simple update strategy:</p>
+<ul>
+<li>Replace the project files with the new version.</li>
+<li>Rerun <code>make docker-install</code> (or the setup script) to rebuild the Docker image if dependencies changed.</li>
+<li>Recreate the shortcut if the project folder has changed.</li>
+</ul>
+<h2 id="logs">Logs</h2>
+<p>Logs are stored in <code>.runtime/logs/</code>:</p>
+<ul>
+<li><code>rag_answer.log</code>: queries and generation.</li>
+<li><code>update_pipeline.log</code>: update pipeline execution.</li>
+<li><code>scan_and_extract.log</code>, <code>chunk_hierarchical.log</code>, <code>index_chroma.log</code>, <code>convert_legacy_office_to_modern.log</code>.</li>
+</ul>
+<h2 id="backup-restore-the-index">Backup / restore the index</h2>
+<p>Run:
+<code>python -m src.admin.backup_index</code></p>
+<p>Export:
+<code>python -m src.admin.backup_index export</code>
+Optional: add <code>--zip</code> to create an archive.</p>
+<p>Restore:
+<code>python -m src.admin.backup_index restore --input &lt;path&gt; --yes</code></p>
+<h2 id="local-reset-advanced">Local reset (advanced)</h2>
+<p>Destructive script that deletes local data:
+<code>python -m src.admin.reset_local_state --yes</code></p>
+<p>Use only if:</p>
+<ul>
+<li>The index is corrupted.</li>
+<li>You want to start from a clean local state.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>LibreOffice error: set <code>SOFFICE_PATH</code> in <code>.env</code>.</li>
+<li>Indexing error: check the OpenAI API key and connectivity.</li>
+<li>No sources found: verify the scan and chunking steps.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
